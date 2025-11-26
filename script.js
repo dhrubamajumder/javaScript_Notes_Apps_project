@@ -23,10 +23,14 @@ createBtn.addEventListener("click", ()=>{
 })
 
 notesContainer.addEventListener("click", function(e){
+
     if(e.target.tagName === "IMG"){
         const confirmDelete = confirm("Are you sure you want to delete this note?");
-        e.target.parentElement.remove();
-        updateStorage()
+        if(confirmDelete){
+            e.target.parentElement.remove();
+            updateStorage()
+        }
+        
     }
     else if(e.target.tagName === "P"){
         notes = document.querySelectorAll(".input-box");
